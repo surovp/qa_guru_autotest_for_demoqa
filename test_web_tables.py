@@ -1,12 +1,14 @@
 import pytest
 from selene.support.shared import browser
-from test_practice_form import browser_configs
 from selene import have
+
+
 @pytest.fixture()
 def open_and_close_form(browser_configs):
     browser.open_url("https://demoqa.com/webtables")
     yield
     browser.close()
+
 
 def test_table_add_edit_delete(open_and_close_form):
     # add new line

@@ -3,11 +3,13 @@ from selene import have
 from selene.support.shared import browser
 import pytest
 
+
 @pytest.fixture()
 def browser_configs():
     browser.config.window_width = 1400
     browser.config.window_height = 1600
     browser.config.browser_name = 'chrome'
+
 
 @pytest.fixture()
 def open_and_close_form(browser_configs):
@@ -15,6 +17,7 @@ def open_and_close_form(browser_configs):
     yield
     browser.element("#closeLargeModal").double_click()
     browser.close()
+
 
 def test_form(open_and_close_form):
     # Name
